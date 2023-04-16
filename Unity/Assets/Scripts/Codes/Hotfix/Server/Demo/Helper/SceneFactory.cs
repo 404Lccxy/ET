@@ -21,7 +21,7 @@ namespace ET.Server
                     break;
                 case SceneType.RouterManager: // 正式发布请用CDN代替RouterManager
                     // 云服务器在防火墙那里做端口映射
-                    scene.AddComponent<HttpComponent, string>($"http://+:{startSceneConfig.OuterPort}/");
+                    scene.AddComponent<HttpComponent, string>($"http://*:{startSceneConfig.OuterPort}/");
                     break;
                 case SceneType.Realm:
                     scene.AddComponent<NetServerComponent, IPEndPoint>(startSceneConfig.InnerIPOutPort);
@@ -36,7 +36,7 @@ namespace ET.Server
                     scene.AddComponent<AOIManagerComponent>();
                     break;
                 case SceneType.Location:
-                    scene.AddComponent<LocationComponent>();
+                    scene.AddComponent<LocationManagerComoponent>();
                     break;
                 case SceneType.Robot:
                     scene.AddComponent<RobotManagerComponent>();
